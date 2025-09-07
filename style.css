@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Jost:ital,wght@0,100..900;1,100..900&family=Lobster&display=swap');
+
+
+body{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* background image  */
+.bg_image{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: url('./image/birthday_bg_bristi.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -10;
+  filter: blur(2.5px);
+  -webkit-filter: blur(2.5px);
+}
+
+/* main container */
+
+.main_container{
+  position: relative;
+  top: 5%;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* design for plate */
+#birthday-cake::before{
+  content: "";
+  position: absolute;
+  background-color: #ede0d4;
+  width: 80%;
+  height: 20%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transform: translate(1%,150%);
+  box-shadow: inset -.2em -.2em #e6ccb2;
+  -webkit-transform: translate(1%,150%);
+  -moz-transform: translate(1%,150%);
+  -ms-transform: translate(1%,150%);
+  -o-transform: translate(1%,150%);
+}
+
+
+/* cake body design  */
+.cake{
+  position: absolute;
+  background-color: #ddb892;
+  width: 65%;
+  height: 15%;
+  transform: translate(3%,150%);
+  -webkit-transform: translate(2%,150%);
+  -moz-transform: translate(3%,150%);
+  -ms-transform: translate(3%,150%);
+  -o-transform: translate(3%,150%);
+}
+
+.cake::before, .cake::after{
+  content: "";
+  position: absolute;
+}
+
+.cake::before, .middle, .middle::before{
+  border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -webkit-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -moz-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -ms-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -o-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  width: 100%;
+  height: 40%;
+}
+
+.cake::before{
+  background-color: #ddb892;
+  top: 95%;
+}
+
+.cake::after{
+  background-color: #b08968;
+  width: 100%;
+  height: 30%;
+  top: 35%;
+}
+
+.middle{
+  position: absolute;
+  background-color: #b08968;
+  top: 60%;
+  z-index: 1;
+}
+
+
+.middle::before{
+  content: "";
+  position: absolute;
+  background-color: #ddb892;
+  top: -66%;
+}
+
+.top{
+  position: absolute;
+  background-color: #7f5539;
+  width: 100%;
+  height: 65%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  z-index: 2;
+  top: -38%;
+  box-shadow: inset -.25em -.04em #fff, inset -2em -.1em rgba(255, 255, 255, .1);
+}
+
+.chocs{
+  position: absolute;
+  width: 10%;
+  height: 38%;
+  background-color: #7f5539;
+  top: -5%;
+  z-index: 1;
+  border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -webkit-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -moz-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -ms-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  -o-border-radius: 50% 50% 50% 50%/ 0% 0% 100% 100%;
+  box-shadow: 1.1em .25em #7f5539, 2.2em 0.3em #7f5539, 3.3em 0.35em #7f5539, 4.4em 0.4em #7f5539, 5.5em 0.4em #7f5539, 6.6em 0.4em #7f5539, 7.7em 0.4em #7f5539, 8.8em 0.35em #7f5539, 9.9em 0.28em #7f5539, 11em 0.08em #7f5539,0 0.2em #fff, 1.1em 0.4em #fff, 2.2em 0.45em #fff, 3.3em 0.5em #fff, 4.4em 0.55em #fff, 5.5em 0.55em #fff,6.6em 0.55em #fff, 7.7em 0.55em #fff, 8.8em 0.5em #fff, 9.9em 0.40em #fff, 11em 0.25em #fff;
+}
+
+.chocs::before{
+  content: "";
+  position: absolute;
+  width: 550%;
+  height: 370%;
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 100% 0% 100% 0%/0% 72% 28% 100%;
+  -webkit-border-radius: 100% 0% 100% 0%/0% 72% 28% 100%;
+  -moz-border-radius: 100% 0% 100% 0%/0% 72% 28% 100%;
+  -ms-border-radius: 100% 0% 100% 0%/0% 72% 28% 100%;
+  -o-border-radius: 100% 0% 100% 0%/0% 72% 28% 100%;
+  left: 450%;
+  top: 0;
+}
+
+/* for candles  */
+.candles{
+  position: absolute;
+  width: 6%;
+  height: 14%;
+  background-color: #0081a7;
+  top: 47%;
+  left: 50%;
+  box-shadow: 2.5em 1em #0081a7 , -2.5em 1em #0081a7;
+}
+
+.candles::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  background-color: #0081a7;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  top: -9%;
+  box-shadow: 0 3.6em #0081a7,-2.5em 1em #0081a7,-2.5em 4.5em #0081a7,2.5em 1em #0081a7,2.5em 4.5em #0081a7, inset .1em -.05em #fff;
+}
+
+.candles::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  top: 20%;
+  left: 220%;
+  box-shadow: inset .1em -0.05em #fff;
+}
+
+.shadows{
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  border-radius: 50%;
+  top: 20%;
+  left: -220%;
+  box-shadow: inset .1em -0.05em #fff;
+}
+
+/* candle er suto */ 
+.shadows::before{
+  content: "";
+  position: absolute;
+  background-color: #333;
+  width: 1%;
+  height: 100%;
+  left: 45%;
+  top: -40%;
+  box-shadow: 2.5em -1em #333, 5em 0 #333;
+}
+
+
+/* side shadow for candle */
+.shadows::after{
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 750%;
+  left: 50%;
+  border-radius: 0% 100% 50% 50%/100% 6% 10% 0%;
+  -webkit-border-radius: 0% 100% 50% 50%/100% 6% 10% 0%;
+  -moz-border-radius: 0% 100% 50% 50%/100% 6% 10% 0%;
+  -ms-border-radius: 0% 100% 50% 50%/100% 6% 10% 0%;
+  -o-border-radius: 0% 100% 50% 50%/100% 6% 10% 0%;
+  background-color: rgba(255, 255, 255, .1);
+  box-shadow: 2.5em -.8em rgba(255, 255, 255, .1), 5em 0 rgba(255, 255, 255, .1);
+}
+
+
+/* flame  */
+.flame,.flame2,.flame3 {
+  cursor: pointer;
+  width: 100%;
+  height: 30%;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  z-index: 4;
+  background-color: rgba(252,191,73,.8);
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  animation: flame .5s infinite;
+  -webkit-animation: flame .5s infinite;
+}
+
+
+/* shape the flame  */
+.flame, .flame::before, .flame2,.flame2::before, .flame3, .flame3::before{
+  position: absolute;
+  border-radius: 80% 15% 55% 50%/ 55% 15% 80% 50%;
+  -webkit-border-radius: 80% 15% 55% 50%/ 55% 15% 80% 50%;
+  -moz-border-radius: 80% 15% 55% 50%/ 55% 15% 80% 50%;
+  -ms-border-radius: 80% 15% 55% 50%/ 55% 15% 80% 50%;
+  -o-border-radius: 80% 15% 55% 50%/ 55% 15% 80% 50%;
+}
+
+
+/* flame alignment  */
+.flame{
+  top: -35%;
+}
+
+.flame2, .flame3{
+  top: -5%;
+}
+
+.flame2{
+  left: -220%;
+}
+
+.flame3{
+  left: 220%;
+}
+
+
+/* flame red light  */
+.flame::before, .flame2::before, .flame3::before{
+  content: "";
+  background-color: rgba(247,127,0,.4);
+  width: 50%;
+  height: 60%;
+  left: 10%;
+  top: 35%;
+}
+
+/* flame animation  */
+@keyframes flame{
+  0%, 25%, 100% {
+    transform: scaleY(1) rotate(-45deg);
+    -webkit-transform: scaleY(1) rotate(-45deg);
+    -moz-transform: scaleY(1) rotate(-45deg);
+    -ms-transform: scaleY(1) rotate(-45deg);
+    -o-transform: scaleY(1) rotate(-45deg);
+  }
+
+  50%, 75%{
+    transform: scaleY(1.1) rotate(-45deg);
+    -webkit-transform: scaleY(1.1) rotate(-45deg);
+    -moz-transform: scaleY(1.1) rotate(-45deg);
+    -ms-transform: scaleY(1.1) rotate(-45deg);
+    -o-transform: scaleY(1.1) rotate(-45deg);
+  }
+}
+
+/* text editing  */
+.text, .text2, .message, .wish{
+  position: absolute;
+  color: #fff;
+  font-family: "Brush Script MT", cursive;
+  text-align: center;
+}
+
+.text{
+  width: 1100%;
+  font-size: 2rem;
+  top: 1%;
+  left: -500%;
+  z-index: -1;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  opacity: 0;
+}
+
+.text2{
+  font-size: 1.5em;
+  width: 100%;
+  top: 90%;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: .3px #6d1e06;
+  background-color: #3c3c3cbd;
+}
+
+.message{
+  font-size: 1.5em;
+  background-color: rgba(89, 87, 92, 0.589);
+  width: 90%;
+  top: 50%;
+  z-index: -1;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  opacity: 0;
+}
+
+.heart {
+  position: absolute;
+  height: 60%; /* adjust to control the size */
+  aspect-ratio: 1;
+  --_m: radial-gradient(#000 69%,#0000 70%) 84.5%/50%;
+  -webkit-mask-box-image: var(--_m);
+             mask-border: var(--_m);
+  clip-path: polygon(-41% 0,50% 91%, 141% 0);
+  /* background: #cc333f; */
+  top: 50%;
+  z-index: -2;
+  opacity: 0;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+/* fallback until better support for mask-border */
+@supports not (-webkit-mask-box-image: var(--_m)) { 
+.heart {
+    mask:
+    radial-gradient(at 70% 31%,#000 29%,#0000 30%),
+    radial-gradient(at 30% 31%,#000 29%,#0000 30%),
+    conic-gradient(#000 0 0) bottom/100% 50% no-repeat;
+}
+}
+
+
+/* wishing part marqee  */
+
+.wish{
+  top: 25%;
+  font-size: 1.7em;
+  min-width: 100vw;
+}
+
+/* media query */
+
+@media screen and (min-width: 576px) {
+  body{
+    background-color: rgba(220, 144, 169, 0.814);
+  }
+  .bg_image{
+    width: 1000px;
+    height: 100vh;
+  }
+  .main_container{
+    top: 11%;
+  }
+  .wish{
+    right: -115%;
+    min-width: 330%;
+  }
+}
+
+
+/* gift box animations */
+.gift_box{
+  height: 15%;
+  width: 20%;
+  position: absolute;
+  left:75%;
+  top: 80%;
+  z-index: -1;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  opacity: 0;
+  animation: rotateAnimation 4s alternate-reverse infinite;
+  -webkit-animation: rotateAnimation 4s alternate-reverse infinite;
+}
+
+/* rotate animation */
+@keyframes rotateAnimation {
+	from { transform: rotate3d(0deg); -webkit-transform: rotate3d(0deg); -moz-transform: rotate3d(0deg); -ms-transform: rotate3d(0deg); -o-transform: rotate3d(0deg); }
+	to { transform: rotateY(360deg); -webkit-transform: rotateY(360deg); -moz-transform: rotateY(360deg); -ms-transform: rotateY(360deg); -o-transform: rotateY(360deg); }
+}
