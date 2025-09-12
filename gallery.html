@@ -1,290 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photo Gallery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    body {
-      width: 100%;
-      height: 100vh;
-      display: grid;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(255, 20, 145, 0.863);
-      overflow: hidden;
-    }
-    .main_container {
-      position: relative;
-      width: 80%;
-      height: 60%;
-      margin-left: 10%;
-      margin-top: 10%;
-      background: pink;
-      border-radius: 5%;
-      border: 2px solid pink;
-      box-shadow: rgb(227, 191, 197) 0px 50px 100px -20px,
-        rgba(215, 173, 173, 0.564) 0px 30px 60px -30px,
-        rgb(220, 182, 188) 0px -2px 6px 0px inset;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-    .main_container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 20, 145, 0.863);
+        overflow: hidden;
+      }
+      .main_container {
+        position: relative;
+        width: 80%;
+        height: 60%;
+        margin-left: 10%;
+        margin-top: 10%;
+        background: pink;
+        border-radius: 5%;
+        border: 2px solid pink;
+        box-shadow: rgb(227, 191, 197) 0px 50px 100px -20px,
+          rgba(215, 173, 173, 0.564) 0px 30px 60px -30px,
+          rgb(220, 182, 188) 0px -2px 6px 0px inset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .main_container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-    /* Controls */
-    .controls {
-      position: absolute;
-      top: 60%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-    .controls button {
-      background: rgba(255, 192, 203, 0.9);
-      border: 2px solid pink;
-      padding: 8px 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      color: rgba(255, 20, 145, 0.9);
-      transition: 0.3s;
-    }
-    .controls button:hover {
-      background: rgba(255, 20, 145, 0.9);
-      color: white;
-    }
-    /* Fancy button styling */
-    .button-13 {
-      touch-action: manipulation;
-      background: none;
-      position: relative;
-      font-size: 1.1rem;
-      border-width: 4px 12px;
-      border-style: solid;
-      border-color: transparent;
-      padding: 8px 24px;
-      text-align: center;
-      color: #fff;
-      transition-property: transform;
-      transition-duration: 0.4s;
-    }
-    .button-13:active {
-      transform: scale(0.92);
-    }
-    .button-13-background {
-      position: absolute;
-      z-index: 2;
-      inset: 0;
-      clip-path: polygon(
-        12px 0,
-        calc(100% - 12px) 0%,
-        100% 12px,
-        100% calc(100% - 12px),
-        calc(100% - 12px) 100%,
-        12px 100%,
-        0% calc(100% - 12px),
-        0% 12px
-      );
-      background-color: saddlebrown;
-      background-image: radial-gradient(
-          transparent,
-          rgba(0, 0, 0, 0.8)
-        ),
-        linear-gradient(
-          to bottom,
-          #af6a65,
-          calc(12.5% - 1px),
-          #cfa381,
-          #88312b calc(12.5% + 1px) 50%,
-          #601d2c 50% calc(87.5% - 1px),
-          #994021,
-          #341227 calc(87.5% + 1px)
-        );
-      transition-property: filter;
-      transition-duration: 0.2s;
-      will-change: filter;
-    }
-    .button-13 .text {
-      background: linear-gradient(180deg, #ffe5c2 1%, #cdaf87 100%), #ffffff;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      z-index: 3;
-      position: relative;
-    }
-    @media (hover: hover) {
-      .button-13:hover .button-13-background {
-        filter: brightness(0.8);
+      /* Controls */
+      .controls {
+        position: absolute;
+        top: 60%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
       }
-    }
-    .button-13:active .button-13-background {
-      filter: brightness(0.6);
-    }
-    .button-13-border {
-      position: absolute;
-      z-index: 1;
-      inset: -4px -12px;
-    }
-    @supports (-webkit-mask-box-image: inherit) or (mask-border: inherit) {
-      .button-13-border {
-        background-image: linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
-        -webkit-mask-box-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
-        -webkit-mask-box-image-slice: 15 23;
-        -webkit-mask-box-image-width: 15px 23px;
-        -webkit-mask-box-image-repeat: repeat;
-        mask-border-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
-        mask-border-slice: 15 23;
-        mask-border-width: 15px 23px;
-        mask-border-repeat: repeat;
+      .controls button {
+        background: rgba(255, 192, 203, 0.9);
+        border: 2px solid pink;
+        padding: 8px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        color: rgba(255, 20, 145, 0.9);
+        transition: 0.3s;
       }
-    }
-    @supports not ((-webkit-mask-box-image: inherit) or (mask-border: inherit)) {
-      .button-13-border {
-        border-width: 15px 23px;
+      .controls button:hover {
+        background: rgba(255, 20, 145, 0.9);
+        color: white;
+      }
+      /* Fancy button styling */
+      .button-13 {
+        touch-action: manipulation;
+        background: none;
+        position: relative;
+        font-size: 1.1rem;
+        border-width: 4px 12px;
         border-style: solid;
         border-color: transparent;
-        border-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border-inverted.svg");
-        border-image-slice: 15 23;
-        border-image-width: 15px 23px;
-        border-image-repeat: repeat;
-        background-image: linear-gradient(#000, #000),
-          linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
-        background-origin: content-box, border-box;
-        background-repeat: no-repeat;
-        filter: url("#remove-black-button-13");
+        padding: 8px 24px;
+        text-align: center;
+        color: #fff;
+        transition-property: transform;
+        transition-duration: 0.4s;
       }
-    }
-    h1 {
-      font-size: 1.5rem;
-      text-align: center;
-      color: white;
-      font-family: 'Merriweather', serif;
-      padding-top: 5vh;
-      padding-left: 17%;
-      position: absolute;
-      top: 0%;
-    }
-    p {
-      font-size: 1rem;
-      text-align: center;
-      color: white;
-      font-family: 'Merriweather', serif;
-      position: absolute;
-      top: 70%;
-    }
+      .button-13:active {
+        transform: scale(0.92);
+      }
+      .button-13-background {
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+        clip-path: polygon(
+          12px 0,
+          calc(100% - 12px) 0%,
+          100% 12px,
+          100% calc(100% - 12px),
+          calc(100% - 12px) 100%,
+          12px 100%,
+          0% calc(100% - 12px),
+          0% 12px
+        );
+        background-color: saddlebrown;
+        background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.8)),
+          linear-gradient(
+            to bottom,
+            #af6a65,
+            calc(12.5% - 1px),
+            #cfa381,
+            #88312b calc(12.5% + 1px) 50%,
+            #601d2c 50% calc(87.5% - 1px),
+            #994021,
+            #341227 calc(87.5% + 1px)
+          );
+        transition-property: filter;
+        transition-duration: 0.2s;
+        will-change: filter;
+      }
+      .button-13 .text {
+        background: linear-gradient(180deg, #ffe5c2 1%, #cdaf87 100%), #ffffff;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        z-index: 3;
+        position: relative;
+      }
+      @media (hover: hover) {
+        .button-13:hover .button-13-background {
+          filter: brightness(0.8);
+        }
+      }
+      .button-13:active .button-13-background {
+        filter: brightness(0.6);
+      }
+      .button-13-border {
+        position: absolute;
+        z-index: 1;
+        inset: -4px -12px;
+      }
+      @supports (-webkit-mask-box-image: inherit) or (mask-border: inherit) {
+        .button-13-border {
+          background-image: linear-gradient(
+            to bottom,
+            #bb9d7a 50%,
+            #806d56 50%
+          );
+          -webkit-mask-box-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
+          -webkit-mask-box-image-slice: 15 23;
+          -webkit-mask-box-image-width: 15px 23px;
+          -webkit-mask-box-image-repeat: repeat;
+          mask-border-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
+          mask-border-slice: 15 23;
+          mask-border-width: 15px 23px;
+          mask-border-repeat: repeat;
+        }
+      }
+      @supports not (
+        (-webkit-mask-box-image: inherit) or (mask-border: inherit)
+      ) {
+        .button-13-border {
+          border-width: 15px 23px;
+          border-style: solid;
+          border-color: transparent;
+          border-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border-inverted.svg");
+          border-image-slice: 15 23;
+          border-image-width: 15px 23px;
+          border-image-repeat: repeat;
+          background-image: linear-gradient(#000, #000),
+            linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
+          background-origin: content-box, border-box;
+          background-repeat: no-repeat;
+          filter: url("#remove-black-button-13");
+        }
+      }
+      h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        color: white;
+        font-family: "Merriweather", serif;
+        padding-top: 5vh;
+        padding-left: 17%;
+        position: absolute;
+        top: 0%;
+      }
+      p {
+        font-size: 1rem;
+        text-align: center;
+        color: white;
+        font-family: "Merriweather", serif;
+        position: absolute;
+        top: 70%;
+      }
 
-    @media screen and (min-width: 769px) {
-  h1{
-   margin-left: 25%;
-  }
+      @media screen and (min-width: 769px) {
+        h1 {
+          margin-left: 25%;
+        }
 
-  p{
-    font-size: 1.2rem;
-    text-align: center;
-    margin-left: 33%;
-  }
-  #prevBtn{
-    top: 80vh;
-    margin-left: 40%;
-  }
-  #nextBtn{
-    margin-right: 40%;
-  }
-}
-  </style>
-</head>
-<body>
-<h1>Our's Memory Album</h1>
-  <div class="main_container">
-    <img id="galleryImage" src="./image/pic1.jpg" alt="Gallery Image">
-  </div>
-  <div class="controls">
+        p {
+          font-size: 1.2rem;
+          text-align: center;
+          margin-left: 33%;
+        }
+        #prevBtn {
+          top: 80vh;
+          margin-left: 40%;
+        }
+        #nextBtn {
+          margin-right: 40%;
+        }
+      }
+      #music-btn {
+        position: fixed;
+        right: 0%;
+        height: 50px;
+        width: 50px;
+        font-size: 20px;
+        border: none;
+        background-color: deeppink;
+        border-radius: 50%;
+        cursor: pointer;
+        top: 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Our's Memory Album</h1>
+    <div class="main_container">
+      <img id="galleryImage" src="./image/pic1.jpg" alt="Gallery Image" />
+    </div>
+    <div class="controls">
       <button id="prevBtn">⟨ Prev</button>
       <button id="nextBtn">Next ⟩</button>
     </div>
-  <p>These pictures pop-up my mind while i close my eyes.</p>
-  <button class="button-13 hidden" role="button" id="surpriseBtn">
-    <span class="text"><a href="celebrate.html">Let's Celebrate...</a></span>
-    <span class="button-13-background"></span>
-    <span class="button-13-border"></span>
-    <svg style="position: absolute;" width="0" height="0">
-      <filter id="remove-black-button-13" color-interpolation-filters="sRGB">
-        <feColorMatrix
-          type="matrix"
-          values="1 0 0 0 0
+    <p>These pictures pop-up my mind while i close my eyes.</p>
+    <button class="button-13 hidden" role="button" id="surpriseBtn">
+      <span class="text"><a href="celebrate.html">Let's Celebrate...</a></span>
+      <span class="button-13-background"></span>
+      <span class="button-13-border"></span>
+      <svg style="position: absolute" width="0" height="0">
+        <filter id="remove-black-button-13" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
                   0 1 0 0 0
                   0 0 1 0 0
                   -1 -1 -1 0 1"
-          result="black-pixels"
-        ></feColorMatrix>
-        <feComposite in="SourceGraphic" in2="black-pixels" operator="out"></feComposite>
-      </filter>
-    </svg>
-  </button>
+            result="black-pixels"
+          ></feColorMatrix>
+          <feComposite
+            in="SourceGraphic"
+            in2="black-pixels"
+            operator="out"
+          ></feComposite>
+        </filter>
+      </svg>
+    </button>
+    <!-- Background Flute Music -->
+    <audio id="bg-music" src="./audio/ring2.mp3" loop preload="auto"></audio>
 
-  <script>
-    const image = document.getElementById("galleryImage");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+    <!-- Floating Music Control Button -->
+    <button id="music-btn">🔊</button>
 
-    // Images list
-    const imageList = [
-      "./image/pic1.jpg",
-      "./image/pic2.jpg",
-      "./image/pic3.jpg",
-      "./image/pic4.jpg",
-      "./image/pic5.jpg",
-      "./image/pic6.jpg",
-      "./image/pic7.jpg",
-      "./image/pic8.jpg",
-      "./image/pic9.jpg"
-    ];
+    <script>
+      const image = document.getElementById("galleryImage");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
 
-    let current = 0;
+      // Images list
+      const imageList = [
+        "./image/pic1.jpg",
+        "./image/pic2.jpg",
+        "./image/pic3.jpg",
+        "./image/pic4.jpg",
+        "./image/pic5.jpg",
+        "./image/pic6.jpg",
+        "./image/pic7.jpg",
+        "./image/pic8.jpg",
+        "./image/pic9.jpg",
+      ];
 
-    function showImage(index) {
-      image.src = imageList[index];
-    }
+      let current = 0;
 
-    function nextImage() {
-      current = (current + 1) % imageList.length;
-      showImage(current);
-    }
+      function showImage(index) {
+        image.src = imageList[index];
+      }
 
-    function prevImage() {
-      current = (current - 1 + imageList.length) % imageList.length;
-      showImage(current);
-    }
+      function nextImage() {
+        current = (current + 1) % imageList.length;
+        showImage(current);
+      }
 
-    prevBtn.addEventListener("click", prevImage);
-    nextBtn.addEventListener("click", nextImage);
+      function prevImage() {
+        current = (current - 1 + imageList.length) % imageList.length;
+        showImage(current);
+      }
 
-    // Back button returns to index.html
-    window.onpopstate = function() {
-      window.location.href = "index.html";
-    };
+      prevBtn.addEventListener("click", prevImage);
+      nextBtn.addEventListener("click", nextImage);
 
-    // Keyboard controls
-document.addEventListener("keydown", function(event) {
-  if (event.key === "ArrowLeft") {
-    prevImage();
-  } else if (event.key === "ArrowRight") {
-    nextImage();
-  }
-});
-  </script>
-</body>
+      // Back button returns to index.html
+      window.onpopstate = function () {
+        window.location.href = "index.html";
+      };
+
+      // Keyboard controls
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          prevImage();
+        } else if (event.key === "ArrowRight") {
+          nextImage();
+        }
+      });
+
+      const audio = document.getElementById("bg-music");
+      const btn = document.getElementById("music-btn");
+
+      // --- Play music function (with autoplay handling) ---
+      function playMusic(force = false) {
+        if (!audio) return;
+
+        if (force) {
+          audio.currentTime = 0;
+        }
+        audio.muted = false;
+
+        audio
+          .play()
+          .then(() => {
+            updateButton();
+          })
+          .catch(() => {
+            console.warn("Autoplay blocked, waiting for user action...");
+          });
+      }
+
+      // --- Update button text/icon based on state ---
+      function updateButton() {
+        if (audio.muted || audio.paused) {
+          btn.textContent = "🔇";
+        } else {
+          btn.textContent = "🔊";
+        }
+      }
+
+      // --- Toggle mute/unmute ---
+      btn.addEventListener("click", () => {
+        audio.muted = !audio.muted;
+
+        if (!audio.muted && audio.paused) {
+          audio.play().catch((err) => console.error("Play blocked:", err));
+        }
+
+        updateButton();
+      });
+
+      // --- Run on first load ---
+      document.addEventListener("DOMContentLoaded", () => {
+        playMusic(true);
+      });
+
+      // --- Run again if user navigates back/forward ---
+      window.addEventListener("pageshow", () => {
+        playMusic(true);
+      });
+    </script>
+  </body>
 </html>

@@ -1,222 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    body {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      justify-content: center;
-      position: relative;
-      background-color: rgba(255, 20, 145, 0.863);
-      overflow: hidden;
-    }
-    .main_container {
-      position: relative;
-      margin-top: 20vh;
-      height: auto;
-      width: 80%;
-      margin-left: 10%;
-      background-color: pink;
-      border-radius: 5%;
-      border: 2px solid pink;
-      box-shadow: rgb(227, 191, 197) 0px 50px 100px -20px,
-        rgba(215, 173, 173, 0.564) 0px 30px 60px -30px,
-        rgb(220, 182, 188) 0px -2px 6px 0px inset;
-      display: grid;
-      justify-content: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 2rem;
-      text-align: center;
-      padding: 4%;
-      color: rgba(255, 20, 145, 0.863);
-      font-family: 'Great Vibes', cursive;
-    }
-    p {
-      font-size: 1.1rem;
-      text-align: center;
-      color: rgba(255, 20, 145, 0.863);
-      font-family: 'Merriweather', serif;
-      margin-bottom: 10px;
-    }
-
-    /* Typing effect cursor */
-    .typing {
-      display: inline-block;
-      white-space: pre-wrap;
-      vertical-align: bottom;
-    }
-    .cursor {
-      display: inline-block;
-      width: 1ch;
-      margin-left: 2px;
-      border-right: 2px solid currentColor;
-      animation: blink 0.9s steps(1, end) infinite;
-    }
-    @keyframes blink {
-      50% {
-        border-color: transparent;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
       }
-    }
-
-    /* Hide button initially */
-    .hidden {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1s ease-in-out;
-    }
-    .show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    button {
-      width: 60%;
-      margin: 20%;
-      height: 5vh;
-      background-color: pink;
-      border: 2px solid pink;
-    }
-
-    /* Fancy button styling */
-    .button-13 {
-      touch-action: manipulation;
-      background: none;
-      position: relative;
-      font-size: 1.1rem;
-      border-width: 4px 12px;
-      border-style: solid;
-      border-color: transparent;
-      padding: 8px 24px;
-      text-align: center;
-      color: #fff;
-      transition-property: transform;
-      transition-duration: 0.4s;
-    }
-    .button-13:active {
-      transform: scale(0.92);
-    }
-    .button-13-background {
-      position: absolute;
-      z-index: 2;
-      inset: 0;
-      clip-path: polygon(
-        12px 0,
-        calc(100% - 12px) 0%,
-        100% 12px,
-        100% calc(100% - 12px),
-        calc(100% - 12px) 100%,
-        12px 100%,
-        0% calc(100% - 12px),
-        0% 12px
-      );
-      background-color: saddlebrown;
-      background-image: radial-gradient(
-          transparent,
-          rgba(0, 0, 0, 0.8)
-        ),
-        linear-gradient(
-          to bottom,
-          #af6a65,
-          calc(12.5% - 1px),
-          #cfa381,
-          #88312b calc(12.5% + 1px) 50%,
-          #601d2c 50% calc(87.5% - 1px),
-          #994021,
-          #341227 calc(87.5% + 1px)
-        );
-      transition-property: filter;
-      transition-duration: 0.2s;
-      will-change: filter;
-    }
-    .button-13 .text {
-      background: linear-gradient(180deg, #ffe5c2 1%, #cdaf87 100%), #ffffff;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      z-index: 3;
-      position: relative;
-    }
-    @media (hover: hover) {
-      .button-13:hover .button-13-background {
-        filter: brightness(0.8);
+      body {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        justify-content: center;
+        position: relative;
+        background-color: rgba(255, 20, 145, 0.863);
+        overflow: hidden;
       }
-    }
-    .button-13:active .button-13-background {
-      filter: brightness(0.6);
-    }
-    .button-13-border {
-      position: absolute;
-      z-index: 1;
-      inset: -4px -12px;
-    }
-    @supports (-webkit-mask-box-image: inherit) or (mask-border: inherit) {
-      .button-13-border {
-        background-image: linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
-        -webkit-mask-box-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
-        -webkit-mask-box-image-slice: 15 23;
-        -webkit-mask-box-image-width: 15px 23px;
-        -webkit-mask-box-image-repeat: repeat;
-        mask-border-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
-        mask-border-slice: 15 23;
-        mask-border-width: 15px 23px;
-        mask-border-repeat: repeat;
+      .main_container {
+        position: relative;
+        margin-top: 20vh;
+        height: auto;
+        width: 80%;
+        margin-left: 10%;
+        background-color: pink;
+        border-radius: 5%;
+        border: 2px solid pink;
+        box-shadow: rgb(227, 191, 197) 0px 50px 100px -20px,
+          rgba(215, 173, 173, 0.564) 0px 30px 60px -30px,
+          rgb(220, 182, 188) 0px -2px 6px 0px inset;
+        display: grid;
+        justify-content: center;
+        padding: 20px;
       }
-    }
-    @supports not ((-webkit-mask-box-image: inherit) or (mask-border: inherit)) {
-      .button-13-border {
-        border-width: 15px 23px;
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+        padding: 4%;
+        color: rgba(255, 20, 145, 0.863);
+        font-family: "Great Vibes", cursive;
+      }
+      p {
+        font-size: 1.1rem;
+        text-align: center;
+        color: rgba(255, 20, 145, 0.863);
+        font-family: "Merriweather", serif;
+        margin-bottom: 10px;
+      }
+
+      /* Typing effect cursor */
+      .typing {
+        display: inline-block;
+        white-space: pre-wrap;
+        vertical-align: bottom;
+      }
+      .cursor {
+        display: inline-block;
+        width: 1ch;
+        margin-left: 2px;
+        border-right: 2px solid currentColor;
+        animation: blink 0.9s steps(1, end) infinite;
+      }
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      /* Hide button initially */
+      .hidden {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s ease-in-out;
+      }
+      .show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      button {
+        width: 60%;
+        margin: 20%;
+        height: 5vh;
+        background-color: pink;
+        border: 2px solid pink;
+      }
+
+      /* Fancy button styling */
+      .button-13 {
+        touch-action: manipulation;
+        background: none;
+        position: relative;
+        font-size: 1.1rem;
+        border-width: 4px 12px;
         border-style: solid;
         border-color: transparent;
-        border-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border-inverted.svg");
-        border-image-slice: 15 23;
-        border-image-width: 15px 23px;
-        border-image-repeat: repeat;
-        background-image: linear-gradient(#000, #000),
-          linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
-        background-origin: content-box, border-box;
-        background-repeat: no-repeat;
-        filter: url("#remove-black-button-13");
+        padding: 8px 24px;
+        text-align: center;
+        color: #fff;
+        transition-property: transform;
+        transition-duration: 0.4s;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="main_container">
-    <h1><span id="title" class="typing"></span><span class="cursor"></span></h1>
-    <p id="line1" class="typing"></p>
-    <p id="line2" class="typing"></p>
-  </div>
+      .button-13:active {
+        transform: scale(0.92);
+      }
+      .button-13-background {
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+        clip-path: polygon(
+          12px 0,
+          calc(100% - 12px) 0%,
+          100% 12px,
+          100% calc(100% - 12px),
+          calc(100% - 12px) 100%,
+          12px 100%,
+          0% calc(100% - 12px),
+          0% 12px
+        );
+        background-color: saddlebrown;
+        background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.8)),
+          linear-gradient(
+            to bottom,
+            #af6a65,
+            calc(12.5% - 1px),
+            #cfa381,
+            #88312b calc(12.5% + 1px) 50%,
+            #601d2c 50% calc(87.5% - 1px),
+            #994021,
+            #341227 calc(87.5% + 1px)
+          );
+        transition-property: filter;
+        transition-duration: 0.2s;
+        will-change: filter;
+      }
+      .button-13 .text {
+        background: linear-gradient(180deg, #ffe5c2 1%, #cdaf87 100%), #ffffff;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        z-index: 3;
+        position: relative;
+      }
+      @media (hover: hover) {
+        .button-13:hover .button-13-background {
+          filter: brightness(0.8);
+        }
+      }
+      .button-13:active .button-13-background {
+        filter: brightness(0.6);
+      }
+      .button-13-border {
+        position: absolute;
+        z-index: 1;
+        inset: -4px -12px;
+      }
+      @supports (-webkit-mask-box-image: inherit) or (mask-border: inherit) {
+        .button-13-border {
+          background-image: linear-gradient(
+            to bottom,
+            #bb9d7a 50%,
+            #806d56 50%
+          );
+          -webkit-mask-box-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
+          -webkit-mask-box-image-slice: 15 23;
+          -webkit-mask-box-image-width: 15px 23px;
+          -webkit-mask-box-image-repeat: repeat;
+          mask-border-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border.svg");
+          mask-border-slice: 15 23;
+          mask-border-width: 15px 23px;
+          mask-border-repeat: repeat;
+        }
+      }
+      @supports not (
+        (-webkit-mask-box-image: inherit) or (mask-border: inherit)
+      ) {
+        .button-13-border {
+          border-width: 15px 23px;
+          border-style: solid;
+          border-color: transparent;
+          border-image-source: url("https://csspro.com/css-3d-buttons/buttons-img/baldurs-gate-3-border-inverted.svg");
+          border-image-slice: 15 23;
+          border-image-width: 15px 23px;
+          border-image-repeat: repeat;
+          background-image: linear-gradient(#000, #000),
+            linear-gradient(to bottom, #bb9d7a 50%, #806d56 50%);
+          background-origin: content-box, border-box;
+          background-repeat: no-repeat;
+          filter: url("#remove-black-button-13");
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_container">
+      <h1>
+        <span id="title" class="typing"></span><span class="cursor"></span>
+      </h1>
+      <p id="line1" class="typing"></p>
+      <p id="line2" class="typing"></p>
+    </div>
 
-  <button class="button-13 hidden" role="button" id="surpriseBtn">
-    <span class="text"><a href="gallery.html">Begin your surprise...</a></span>
-    <span class="button-13-background"></span>
-    <span class="button-13-border"></span>
-    <svg style="position: absolute;" width="0" height="0">
-      <filter id="remove-black-button-13" color-interpolation-filters="sRGB">
-        <feColorMatrix
-          type="matrix"
-          values="1 0 0 0 0
+    <button class="button-13 hidden" role="button" id="surpriseBtn">
+      <span class="text"
+        ><a href="gallery.html">Begin your surprise...</a></span
+      >
+      <span class="button-13-background"></span>
+      <span class="button-13-border"></span>
+      <svg style="position: absolute" width="0" height="0">
+        <filter id="remove-black-button-13" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
                   0 1 0 0 0
                   0 0 1 0 0
                   -1 -1 -1 0 1"
-          result="black-pixels"
-        ></feColorMatrix>
-        <feComposite in="SourceGraphic" in2="black-pixels" operator="out"></feComposite>
-      </filter>
-    </svg>
-  </button>
-  <script src="script.js"></script>
-</body>
+            result="black-pixels"
+          ></feColorMatrix>
+          <feComposite
+            in="SourceGraphic"
+            in2="black-pixels"
+            operator="out"
+          ></feComposite>
+        </filter>
+      </svg>
+    </button>
+    <script src="script.js"></script>
+  </body>
 </html>

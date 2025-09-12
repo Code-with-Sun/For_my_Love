@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Hlw Miss❤️🎂</title>
     <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="bg_image"></div>
     <div id="birthday-cake" class="main_container">
-      <img src="./image/birthday_pic.jpg" alt="Swapna" class="heart">
-        <div class="cake">
-          <div class="middle"></div>
-          <div class="chocs"></div>
-          <div class="top"></div>
-        </div>
-        <div class="candles">
-          <div class="flame"></div>
-          <div class="flame2"></div>
-          <div class="flame3"></div>
-          <div class="text">Happy Birthday! Bristi</div>
-          <div class="shadows"></div>
-        </div>
-        <p class="text2">*click on the flame to blow candles</p>
-        <p class="message">Wishing you all the love, joy, and happiness in the world on your special day! ❤️</p>
-        <marquee class="wish" direction="left" loop="infinite" behaviour="alternate" truespeed="60">🕯️ Happy Birthday to You 🕯️ Happy Birthday to You 🕯️ Happy Birthday Dear ❤️Bristi❤️ 🕯️ Happy Birthday to You 🕯️</marquee>
+      <img src="./image/birthday_pic.jpg" alt="Swapna" class="heart" />
+      <div class="cake">
+        <div class="middle"></div>
+        <div class="chocs"></div>
+        <div class="top"></div>
       </div>
+      <div class="candles">
+        <div class="flame"></div>
+        <div class="flame2"></div>
+        <div class="flame3"></div>
+        <div class="text">Happy Birthday! Bristi</div>
+        <div class="shadows"></div>
+      </div>
+      <p class="text2">*click on the flame to blow candles</p>
+      <p class="message">
+        Wishing you all the love, joy, and happiness in the world on your
+        special day! ❤️
+      </p>
+      <marquee
+        class="wish"
+        direction="left"
+        loop="infinite"
+        behaviour="alternate"
+        truespeed="60"
+        >🕯️ Happy Birthday to You 🕯️ Happy Birthday to You 🕯️ Happy Birthday
+        Dear ❤️Bristi❤️ 🕯️ Happy Birthday to You 🕯️</marquee
+      >
+    </div>
+    <!-- Background Flute Music -->
+    <audio id="bg-music" autoplay loop>
+      <source src="./audio/ring1.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating Music Control Button -->
+    <button id="music-btn">🔊</button>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
